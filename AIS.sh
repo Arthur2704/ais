@@ -3,7 +3,7 @@ disk=sda
 boot=sda1
 swap=sda2
 root=sda3
-password=Artik@00
+password=
 
 mkfs.ext4 "/dev/$boot"
 mkswap "/dev/$swap"
