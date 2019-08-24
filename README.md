@@ -1,0 +1,2 @@
+# ais
+Arch install scrip
