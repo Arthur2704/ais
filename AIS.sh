@@ -23,7 +23,7 @@ echo "hwclock --systohc --utc
 mkinitcpio -p linux
 echo "root:$password" | chpasswd
 grub-install "/dev/$disk"
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig >> /boot/grub/grub.cfg
 exit" >> /mnt/script.sh
 
 arch-chroot /mnt sh script.sh
