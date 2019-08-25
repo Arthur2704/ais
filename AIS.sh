@@ -2,9 +2,7 @@
 disk=sda
 boot=sda1
 swap=sda2
-root=sda3
-password=
-addpkg="iw wpa_supplicant dialog" 
+root=sda3 
 
 mkfs.ext4 "/dev/$boot"
 mkswap "/dev/$swap"
@@ -21,10 +19,8 @@ genfstab -p /mnt >> /mnt/etc/fstab
 
 echo "hwclock --systohc --utc
 mkinitcpio -p linux
-echo "root:$password" | chpasswd
 grub-install "/dev/$disk"
 grub-mkconfig >> /boot/grub/grub.cfg
-pacman -Syu "$addpkg"
 exit" >> /mnt/script.sh
 
 arch-chroot /mnt sh script.sh
