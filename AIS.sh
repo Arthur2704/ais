@@ -15,9 +15,9 @@ mount "/dev/$root" "/mnt"
 mkdir /mnt/boot /mnt/home /mnt/var
 mount "/dev/$boot" "/mnt/boot"
 
-pacstrap /mnt base base-devel "$addpkg"
+pacstrap /mnt base base-devel
 pacstrap /mnt grub-bios
-
+pacstrap /mnt "$addpkg" 
 genfstab -p /mnt >> /mnt/etc/fstab
 
 echo "hwclock --systohc --utc
