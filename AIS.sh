@@ -4,6 +4,7 @@ boot=sda1
 swap=sda2
 root=sda3
 password=
+addpkg="" 
 
 mkfs.ext4 "/dev/$boot"
 mkswap "/dev/$swap"
@@ -14,7 +15,7 @@ mount "/dev/$root" "/mnt"
 mkdir /mnt/boot /mnt/home /mnt/var
 mount "/dev/$boot" "/mnt/boot"
 
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel "$addpkg"
 pacstrap /mnt grub-bios
 
 genfstab -p /mnt >> /mnt/etc/fstab
